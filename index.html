@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PokéPalette - Build Your Team</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>PokéPalette</h1>
+        <p>Craft Your Beautiful Pokémon Team</p>
+    </header>
+
+    <main class="app-container">
+
+        <!-- Left Panel: Search & Roster -->
+        <section class="panel selection-panel">
+            <h2>Build Your Team (Max 6)</h2>
+
+            <div class="search-area">
+                <input type="text" id="pokemon-search" placeholder="Search Pokémon...">
+                <div id="search-results">
+                    <!-- Search results will appear here -->
+                </div>
+            </div>
+
+            <div class="roster-area">
+                <h3>Current Roster</h3>
+                <div id="team-roster" class="roster-slots">
+                    <!-- Selected Pokémon previews will appear here -->
+                    <div class="pokemon-slot" data-slot="0">Empty</div>
+                    <div class="pokemon-slot" data-slot="1">Empty</div>
+                    <div class="pokemon-slot" data-slot="2">Empty</div>
+                    <div class="pokemon-slot" data-slot="3">Empty</div>
+                    <div class="pokemon-slot" data-slot="4">Empty</div>
+                    <div class="pokemon-slot" data-slot="5">Empty</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Middle Panel: Canvas Preview -->
+        <section class="panel canvas-panel">
+            <h2>Live Preview</h2>
+            <div class="canvas-container">
+                <canvas id="team-canvas" width="600" height="200"></canvas>
+                <!-- Adjust canvas dimensions as needed -->
+            </div>
+        </section>
+
+        <!-- Right Panel: Customization -->
+        <aside class="panel customization-panel">
+            <h2>Customize Appearance</h2>
+
+            <div class="control-group">
+                <label>Layout:</label>
+                <label><input type="radio" name="layout" value="line" checked> Line</label>
+                <label><input type="radio" name="layout" value="grid-2x3"> Grid (2x3)</label>
+                <label><input type="radio" name="layout" value="grid-3x2"> Grid (3x2)</label>
+            </div>
+
+            <div class="control-group">
+                <label for="background-color">Background Color:</label>
+                <input type="color" id="background-color" value="#f0f0f0">
+                 <label><input type="checkbox" id="transparent-bg"> Transparent</label>
+            </div>
+
+             <div class="control-group">
+                <label for="sprite-style">Sprite Style:</label>
+                <select id="sprite-style">
+                    <option value="front_default">Default</option>
+                    <option value="front_shiny">Shiny</option>
+                    <!-- Potentially add more if reliably sourceable -->
+                     <option value="official-artwork">Official Art (If available)</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label for="pokemon-size">Pokémon Size:</label>
+                <input type="range" id="pokemon-size" min="50" max="150" value="100"> <span id="size-value">100%</span>
+            </div>
+
+             <div class="control-group">
+                <label for="team-name">Team Name (Optional):</label>
+                <input type="text" id="team-name" placeholder="Enter team name...">
+                <input type="color" id="team-name-color" value="#333333">
+            </div>
+
+
+            <button id="export-btn" class="export-button">Export as PNG</button>
+        </aside>
+
+    </main>
+
+    <footer>
+        <p>Powered by <a href="https://pokeapi.co/" target="_blank" rel="noopener noreferrer">PokéAPI</a>. Sprites and Pokémon names © Nintendo/Creatures Inc./GAME FREAK Inc.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
